@@ -23,17 +23,17 @@ syslog_device=
 
 [fedora]
 name=fedora
-baseurl=http://www.doubledog.org/pub/fedora/releases/<%= @release %>/Everything/<%= @arch %>/os/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/releases/<%= @release %>/Everything/<%= @arch %>/os/
 failovermethod=priority
 
 [updates]
 name=updates
-baseurl=http://www.doubledog.org/pub/fedora/updates/<%= @release %>/<%= @arch %>/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/<%= @release %>/<%= @arch %>/
 failovermethod=priority
 
 [updates-testing]
 name=updates-testing
-baseurl=http://www.doubledog.org/pub/fedora/updates/testing/<%= @release %>/<%= @arch %>/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/testing/<%= @release %>/<%= @arch %>/
 failovermethod=priority
 enabled=0
 
