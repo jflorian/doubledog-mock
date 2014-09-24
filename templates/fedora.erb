@@ -1,5 +1,5 @@
-config_opts['root'] = 'fedora-<%= @release %>-<%= @arch %>'
-config_opts['target_arch'] = '<%= @arch %>'
+config_opts['root'] = 'fedora-<%= @release %>-<%= @base_arch %>'
+config_opts['target_arch'] = '<%= @target_arch %>'
 config_opts['legal_host_arches'] = <%= @legal_host_arches %>
 config_opts['chroot_setup_cmd'] = 'install @buildsys-build /usr/bin/pigz /usr/bin/lbzip2'
 config_opts['macros']['%__gzip'] = '/usr/bin/pigz'
@@ -23,41 +23,41 @@ syslog_device=
 
 [fedora]
 name=fedora
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/releases/<%= @release %>/Everything/<%= @arch %>/os/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/releases/<%= @release %>/Everything/<%= @base_arch %>/os/
 failovermethod=priority
 
 [updates]
 name=updates
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/<%= @release %>/<%= @arch %>/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/<%= @release %>/<%= @base_arch %>/
 failovermethod=priority
 
 [updates-testing]
 name=updates-testing
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/testing/<%= @release %>/<%= @arch %>/
+baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/testing/<%= @release %>/<%= @base_arch %>/
 failovermethod=priority
 enabled=0
 
 [local]
 name=local
-baseurl=http://www.doubledog.org/yum/fedora/testing/<%= @release %>/<%= @arch %>/
+baseurl=http://www.doubledog.org/yum/fedora/testing/<%= @release %>/<%= @base_arch %>/
 cost=2000
 enabled=0
 
 #   [fedora-debuginfo]
 #   name=fedora-debuginfo
-#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-<%= @release %>&arch=<%= @arch %>
+#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-<%= @release %>&arch=<%= @base_arch %>
 #   failovermethod=priority
 #   enabled=0
 
 #   [updates-debuginfo]
 #   name=updates-debuginfo
-#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f<%= @release %>&arch=<%= @arch %>
+#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f<%= @release %>&arch=<%= @base_arch %>
 #   failovermethod=priority
 #   enabled=0
 
 #   [updates-testing-debuginfo]
 #   name=updates-testing-debuginfo
-#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-debug-f<%= @release %>&arch=<%= @arch %>
+#   mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-debug-f<%= @release %>&arch=<%= @base_arch %>
 #   failovermethod=priority
 #   enabled=0
 #   """
