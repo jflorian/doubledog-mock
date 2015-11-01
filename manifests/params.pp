@@ -7,7 +7,8 @@
 class mock::params {
 
     case $::operatingsystem {
-        Fedora: {
+
+        'Fedora': {
 
             $packages = [
                 'mock',
@@ -16,7 +17,7 @@ class mock::params {
         }
 
         default: {
-            fail ("The mock module is not yet supported on ${operatingsystem}.")
+            fail ("${title}: operating system '${::operatingsystem}' is not supported")
         }
 
     }
