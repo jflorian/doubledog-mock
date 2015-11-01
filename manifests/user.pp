@@ -29,10 +29,10 @@ define mock::user ($ensure='present') {
             # NB: 'getent' is used instead of 'groups' because the latter requires
             # a new login environment before the addition is realized.
             exec { "add-${name}-to-mock-group":
-                command => "usermod -a -G mock ${name}",
-                unless  => "getent group mock | cut -d: -f4- | sed 's/,/\\n/g' | grep '^${name}$'",
-                require => Class['mock::common'],
-                logoutput   => true,
+                command   => "usermod -a -G mock ${name}",
+                unless    => "getent group mock | cut -d: -f4- | sed 's/,/\\n/g' | grep '^${name}$'",
+                require   => Class['mock::common'],
+                logoutput => true,
             }
         }
 
