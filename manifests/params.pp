@@ -1,18 +1,25 @@
 # modules/mock/manifests/params.pp
 #
-# Synopsis:
-#       Parameters for the mock puppet module.
+# == Class: mock::params
+#
+# Parameters for the mock puppet module.
+#
+# === Authors
+#
+#   John Florian <jflorian@doubledog.org>
+#
+# === Copyright
+#
+# Copyright 2014-2015 John Florian
 
 
 class mock::params {
 
     case $::operatingsystem {
 
-        'Fedora': {
+        'CentOS', 'Fedora': {
 
-            $packages = [
-                'mock',
-            ]
+            $packages = 'mock'
 
         }
 

@@ -1,12 +1,12 @@
+# WARNING:
+#   This file is managed by Puppet via the "<%= @module_name %>" module.
+
 config_opts['root'] = 'epel-<%= @release %>-<%= @base_arch %>'
 config_opts['target_arch'] = '<%= @target_arch %>'
 config_opts['legal_host_arches'] = <%= @legal_host_arches %>
-config_opts['chroot_setup_cmd'] = 'install @buildsys-build /usr/bin/pigz /usr/bin/lbzip2'
+config_opts['chroot_setup_cmd'] = 'install @buildsys-build'
 config_opts['dist'] = 'el<%= @release %>'  # only useful for --resultdir variable subst
-config_opts['extra_chroot_dirs'] = [ '/run/lock', ]
 config_opts['releasever'] = '<%= @release %>'
-config_opts['macros']['%__gzip'] = '/usr/bin/pigz'
-config_opts['macros']['%__bzip2'] = '/usr/bin/lbzip2'
 
 config_opts['yum.conf'] = """
 [main]
@@ -20,8 +20,6 @@ gpgcheck=0
 assumeyes=1
 syslog_ident=mock
 syslog_device=
-install_weak_deps=0
-metadata_expire=0
 
 # repos
 
