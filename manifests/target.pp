@@ -35,6 +35,10 @@
 # [*ensure*]
 #   Configuration instance is to be 'present' (default) or 'absent'.
 #
+# [*package_manager*]
+#   The package manger to be used within mock's chroot.  This can be either
+#   'dnf' (default) or 'yum'.
+#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
@@ -51,6 +55,7 @@ define mock::target (
         $release,
         $target_arch,
         $ensure='present',
+        $package_manager='dnf',
     ) {
 
     include '::mock'
