@@ -26,6 +26,14 @@
 # [*release*]
 #   The build target's distribution release.  E.g., '20'.
 #
+# [*repos*]
+#   A hash whose keys are package repository names and whose values are hashes
+#   comprising the same parameters you would otherwise pass to
+#   Define[mock::target::repo].  When declaring repos this way, you do not
+#   need to pass the "base_arch", "family" nor "release" parameters within the
+#   hash if those passed to Define[mock::target] match (as they usually
+#   should).
+#
 # [*target_arch*]
 #   The machine hardware architecture that mock is to target when building
 #   rpms.  This mostly affects code compilation.
@@ -56,12 +64,13 @@ define mock::target (
         $target_arch,
         $ensure='present',
         $package_manager='dnf',
+        $repos={},
     ) {
 
     include '::mock'
     include '::mock::params'
 
-    file { "/etc/mock/${family}-${release}-${base_arch}.cfg":
+    ::concat { "/etc/mock/${family}-${release}-${base_arch}.cfg":
         ensure    => $ensure,
         owner     => 'root',
         group     => 'mock',
@@ -70,7 +79,31 @@ define mock::target (
         selrole   => 'object_r',
         seltype   => 'etc_t',
         subscribe => Package[$::mock::params::packages],
-        content   => template("mock/${family}.erb"),
     }
+
+    ::concat::fragment { "/etc/mock/${family}-${release}-${base_arch}.cfg top":
+        target  => "/etc/mock/${family}-${release}-${base_arch}.cfg",
+        order   => '100',
+        content => template("mock/${family}.erb"),
+    }
+
+    ::concat::fragment { "/etc/mock/${family}-${release}-${base_arch}.cfg bottom":
+        target  => "/etc/mock/${family}-${release}-${base_arch}.cfg",
+        order   => '999',
+        content => "\n\"\"\"\n",
+    }
+
+    create_resources(
+        ::mock::target::repo,
+        $repos,
+        # These defaults are nice because ordinarily the repo is always going
+        # to match the target.  (The repo configuration generally doesn't need
+        # them, but Define[mock::target::repo] does to uniquely identify each.
+        {
+            base_arch => $base_arch,
+            family    => $family,
+            release   => $release,
+        }
+    )
 
 }

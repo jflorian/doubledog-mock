@@ -1,5 +1,6 @@
 # WARNING:
 #   This file is managed by Puppet via the "<%= @module_name %>" module.
+# vim: filetype=configparser
 
 config_opts['root'] = 'fedora-<%= @release %>-<%= @base_arch %>'
 config_opts['target_arch'] = '<%= @target_arch %>'
@@ -26,48 +27,3 @@ install_weak_deps=0
 metadata_expire=0
 
 # repos
-
-[fedora]
-name=fedora
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/releases/<%= @release %>/Everything/<%= @base_arch %>/os/
-failovermethod=priority
-gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-<%= @release %>-primary
-gpgcheck=1
-
-[updates]
-name=updates
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/<%= @release %>/<%= @base_arch %>/
-failovermethod=priority
-gpgkey=file:///etc/pki/mock/RPM-GPG-KEY-fedora-<%= @release %>-primary
-gpgcheck=1
-
-[updates-testing]
-name=updates-testing
-baseurl=http://www.doubledog.org/pub/mirrors/fedora/updates/testing/<%= @release %>/<%= @base_arch %>/
-failovermethod=priority
-enabled=0
-
-[local]
-name=local
-baseurl=http://www.doubledog.org/rpms/fedora/released/<%= @release %>/<%= @base_arch %>/
-cost=2000
-enabled=0
-
-[fedora-debuginfo]
-name=fedora-debuginfo
-metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-debug-$releasever&arch=$basearch
-failovermethod=priority
-enabled=0
-
-[updates-debuginfo]
-name=updates-debuginfo
-metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-f$releasever&arch=$basearch
-failovermethod=priority
-enabled=0
-
-[updates-testing-debuginfo]
-name=updates-testing-debuginfo
-metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-testing-debug-f$releasever&arch=$basearch
-failovermethod=priority
-enabled=0
-"""
