@@ -41,7 +41,9 @@
 # ==== Optional
 #
 # [*ensure*]
-#   Configuration instance is to be 'present' (default) or 'absent'.
+#   Instance is to be 'present' (default) or 'absent'.  Alternatively,
+#   a Boolean value may also be used with true equivalent to 'present' and
+#   false equivalent to 'absent'.
 #
 # [*package_manager*]
 #   The package manger to be used within mock's chroot.  This can be either
@@ -57,14 +59,14 @@
 
 
 define mock::target (
-        $base_arch,
-        $family,
-        $legal_host_arches,
-        $release,
-        $target_arch,
-        $ensure='present',
-        $package_manager='dnf',
-        $repos={},
+        String[1] $base_arch,
+        String[1] $family,
+        Array[String[1]] $legal_host_arches,
+        String[1] $release,
+        String[1] $target_arch,
+        Variant[Boolean, Enum['present', 'absent']] $ensure='present',
+        Enum['dnf', 'yum'] $package_manager='dnf',
+        Hash[String[1], Hash] $repos={},
     ) {
 
     include '::mock'

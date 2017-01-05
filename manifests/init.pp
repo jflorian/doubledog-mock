@@ -28,8 +28,8 @@
 
 
 class mock (
-        $ensure='installed',
-        $site_defaults=undef,
+        Variant[Boolean, String[1]] $ensure='installed',
+        Optional[String[1]] $site_defaults=undef,
     ) inherits ::mock::params {
 
     package { $::mock::params::packages:

@@ -75,48 +75,32 @@
 
 
 define mock::target::repo (
-        $base_arch,
-        $family,
-        $release,
-        $baseurl=undef,
-        $cost=1000,
-        $enabled=true,
-        $failovermethod='roundrobin',
-        $gpgcheck=false,
-        $gpgkey=undef,
-        $metalink=undef,
-        $mirrorlist=undef,
-        $reponame=$title,
+        Enum['i386', 'x86_64'] $base_arch,
+        String[1] $family,
+        String[1] $release,
+        Optional[String[1]] $baseurl=undef,
+        Integer[0] $cost=1000,
+        Boolean $enabled=true,
+        Enum['priority', 'roundrobin'] $failovermethod='roundrobin',
+        Boolean $gpgcheck=false,
+        Optional[String[1]] $gpgkey=undef,
+        Optional[String[1]] $metalink=undef,
+        Optional[String[1]] $mirrorlist=undef,
+        String[1] $reponame=$title,
     ) {
-
-    validate_bool($enabled, $gpgcheck)
-    validate_integer($cost)
-
-    validate_re($base_arch, '^(i386|x86_64)$',
-        "'base_arch' must be one of 'i386' or 'x86_64'"
-    )
-
-    validate_re($family, '^.+$', "'family' must be set")
-    validate_re($release, '^.+$', "'release' must be set")
-
-    validate_re($failovermethod, '^(priority|roundrobin)$',
-        "'failovermethod' must be one of 'i386' or 'x86_64'"
-    )
-
-    validate_re($reponame, '^.+$', "'reponame' must be set")
 
     if $baseurl == undef and $metalink == undef and $mirrorlist == undef {
         fail("one of 'baseurl', 'metalink' or 'mirrorlist' must be set")
     }
 
-    if $gpgcheck {
-        validate_re($gpgkey, '^.+$', "'gpgkey' must be set")
+    if $gpgcheck and $gpgkey == undef {
+        fail("'gpgkey' must be set when gpgcheck is true")
     }
 
     ::concat::fragment { "mock-${family}-${release}-${base_arch} ${title}":
         target  => "/etc/mock/${family}-${release}-${base_arch}.cfg",
         order   => '200',
-        content => template("mock/repo.erb"),
+        content => template('mock/repo.erb'),
     }
 
 }
