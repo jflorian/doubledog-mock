@@ -37,7 +37,6 @@ class mock (
     }
 
     file { '/etc/mock/site-defaults.cfg':
-        ensure    => $ensure,
         owner     => 'root',
         group     => 'mock',
         mode      => '0644',
