@@ -10,7 +10,7 @@
 #
 # === Copyright
 #
-# Copyright 2014-2016 John Florian
+# Copyright 2014-2017 John Florian
 
 
 class mock::params {
