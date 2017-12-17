@@ -1,0 +1,22 @@
+{
+    "name": "doubledog-mock",
+    "version": "1.0.0",
+    "author": "John Florian",
+    "summary": "A module to manage the mock tool",
+    "license": "GPL-3.0",
+    "source": "https://www.doubledog.org/git/puppet-mock.git",
+    "project_page": "https://github.com/jflorian/doubledog-mock",
+    "issues_url": "https://github.com/jflorian/doubledog-mock/issues",
+    "operatingsystem_support": [{
+        "operatingsystem": "CentOS",
+        "operatingsystemrelease": "7.0"
+    }, {
+        "operatingsystem": "Fedora",
+        "operatingsystemrelease": ["25", "26", "27"]
+    }],
+    "dependencies": [{
+        "name": "puppetlabs/concat",
+        "version_requirement": ">= 2.2.0 < 3.0.0"
+    }],
+    "data_provider": "hiera"
+}
