@@ -14,6 +14,9 @@
 #   Package state is to be 'installed' (default), 'absent', or any other value
 #   appropiate to a Package resource type.
 #
+# [*packages*]
+#   An array of package names needed for the mock installation.
+#
 # [*site_defaults*]
 #   Source URI providce mock's site-defaults configuration.  The default is to
 #   use the one provided by the package.
@@ -28,11 +31,12 @@
 
 
 class mock (
-        Variant[Boolean, String[1]] $ensure='installed',
-        Optional[String[1]] $site_defaults=undef,
-    ) inherits ::mock::params {
+        Variant[Boolean, String[1]] $ensure,
+        Array[String[1], 1]         $packages,
+        Optional[String[1]]         $site_defaults=undef,
+    ) {
 
-    package { $::mock::params::packages:
+    package { $packages:
         ensure => $ensure,
     }
 
@@ -44,7 +48,7 @@ class mock (
         selrole   => 'object_r',
         seltype   => 'etc_t',
         source    => $site_defaults,
-        subscribe => Package[$::mock::params::packages],
+        subscribe => Package[$packages],
     }
 
 }

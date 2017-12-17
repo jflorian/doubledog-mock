@@ -70,7 +70,6 @@ define mock::target (
     ) {
 
     include '::mock'
-    include '::mock::params'
 
     ::concat { "/etc/mock/${family}-${release}-${base_arch}.cfg":
         ensure    => $ensure,
@@ -80,7 +79,7 @@ define mock::target (
         seluser   => 'system_u',
         selrole   => 'object_r',
         seltype   => 'etc_t',
-        subscribe => Package[$::mock::params::packages],
+        subscribe => Package[$::mock::packages],
     }
 
     ::concat::fragment { "/etc/mock/${family}-${release}-${base_arch}.cfg top":
