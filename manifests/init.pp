@@ -17,9 +17,12 @@
 # [*packages*]
 #   An array of package names needed for the mock installation.
 #
-# [*site_defaults*]
-#   Source URI providce mock's site-defaults configuration.  The default is to
-#   use the one provided by the package.
+# [*config_opts*]
+#   A hash-map of key/value pairs to go into mock's site-defaults.cfg filei to
+#   override the upstream defaults.  The default is an empty map.  Neither
+#   name nor value is validated in any way by this Puppet module.
+
+#   TODO: handle nested keys e.g., plugin_conf::yum_cache_opts
 #
 # === Authors
 #
@@ -29,10 +32,10 @@
 #
 # Copyright 2014-2017 John Florian
 
-
 class mock (
         Variant[Boolean, String[1]] $ensure,
         Array[String[1], 1]         $packages,
+        Hash[String[1], Data]       $config_opts,
         Optional[String[1]]         $site_defaults=undef,
     ) {
 
@@ -47,7 +50,7 @@ class mock (
         seluser   => 'system_u',
         selrole   => 'object_r',
         seltype   => 'etc_t',
-        source    => $site_defaults,
+        content   => template('mock/site-defaults.cfg.erb'),
         subscribe => Package[$packages],
     }
 

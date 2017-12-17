@@ -1,0 +1,5 @@
+---
+mock::config_opts:
+    bootstrap_chroot_additional_packages:   []
+    bootstrap_module_enable:                []
+    bootstrap_module_install:               []

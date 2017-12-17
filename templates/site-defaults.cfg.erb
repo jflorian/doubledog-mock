@@ -1,0 +1,19 @@
+# mock defaults
+#
+# WARNING:
+#   This file is managed by Puppet via the "<%= @module_name %>" module.
+#
+# If you want to alter just some setting for one user, you can put the
+# configuration in:
+#    ~/.config/mock.cfg
+#
+# This config file is for site-specific default values that apply across all
+# configurations. Options specified in this config file can be overridden in
+# the individual mock config files.
+#
+# The site-defaults.cfg delivered by default has NO options set. Only set
+# options here if you want to override the defaults.
+
+<% @config_opts.each do |k,v| -%>
+config_opts['<%= k %>'] = <%= v %>
+<% end -%>
