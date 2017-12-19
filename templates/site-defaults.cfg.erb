@@ -15,5 +15,9 @@
 # options here if you want to override the defaults.
 
 <% @config_opts.each do |k,v| -%>
+<%if [true, false].include? v -%>
+config_opts['<%= k %>'] = <%= v ? "True" : "False" %>
+<% else -%>
 config_opts['<%= k %>'] = <%= v %>
+<% end -%>
 <% end -%>
