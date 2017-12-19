@@ -4,26 +4,6 @@
 #
 # Manages mock on a host.
 #
-# === Parameters
-#
-# ==== Required
-#
-# ==== Optional
-#
-# [*ensure*]
-#   Package state is to be 'installed' (default), 'absent', or any other value
-#   appropiate to a Package resource type.
-#
-# [*packages*]
-#   An array of package names needed for the mock installation.
-#
-# [*config_opts*]
-#   A hash-map of key/value pairs to go into mock's site-defaults.cfg filei to
-#   override the upstream defaults.  The default is an empty map.  Neither
-#   name nor value is validated in any way by this Puppet module.
-
-#   TODO: handle nested keys e.g., plugin_conf::yum_cache_opts
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>

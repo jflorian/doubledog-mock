@@ -37,12 +37,32 @@ Typical use of this module involves including the `mock` class to install the pa
 
 **Classes:**
 
+* [mock](#mock-class)
 
 **Defined types:**
 
 
 
 ### Classes
+
+#### mock class
+
+This class manages the package installation and the global `sites-defaults.cfg` configuration file.  It will be included automatically by `mock::target` so if your site uses Hiera for class parameter values, it is unnecessary to explicitly include this class.
+
+##### `config_opts`
+A hash-map of key/value pairs to go into the `site-defaults.cfg` file to override the package defaults.  To remain as flexible as possible, neither name nor value is validated in any way by this Puppet module.
+
+
+##### `ensure`
+The desired package state.  This can be `installed` (default), `absent`, or any
+other value appropriate to the Package resource type.
+
+
+##### `packages`
+An array of package names needed for the mock installation.  The default should be correct for supported platforms.
+
+
+### Defined types
 
 
 ### Defined types
