@@ -75,7 +75,7 @@ An arbitrary identifier for the target instance.  This has no effect on the nami
 
 ##### `base_arch`
 The base architecture for the build target.  This affects mock's configuration
-for the package repositories so that mock can populate the build root.
+for the package repositories so that mock can populate the build root.  One of the following: `aarch64`, `armhfp`, `i386`, `ppc64`, `ppc64le`, `s390x`, `x86_64`
 
 ##### `ensure`
 This configuration file instance is to be `present` (default) or `absent`.  Alternatively, a Boolean value may also be used with `true` equivalent to `present` and `false` equivalent to `absent`.
