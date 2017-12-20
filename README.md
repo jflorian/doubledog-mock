@@ -41,6 +41,7 @@ Typical use of this module involves including the `mock` class to install the pa
 
 **Defined types:**
 
+* [mock::target](#mocktarget-defined-type)
 
 
 ### Classes
@@ -64,8 +65,37 @@ An array of package names needed for the mock installation.  The default should 
 
 ### Defined types
 
+#### mock::target defined type
 
-### Defined types
+This defined type manages a build-target configuration file.
+
+##### `namevar`
+An arbitrary identifier for the target instance.  This has no effect on the naming of the configuration file.
+
+##### `base_arch`
+The base architecture for the build target.  This affects mock's configuration
+for the package repositories so that mock can populate the build root.
+
+##### `ensure`
+This configuration file instance is to be `present` (default) or `absent`.  Alternatively, a Boolean value may also be used with `true` equivalent to `present` and `false` equivalent to `absent`.
+
+##### `family`
+The build target`s distribution family.  E.g., `fedora` or `epel`.
+
+##### `legal_host_arches`
+To legally use this build target, the build host must be of a platform architecture contained in this array.
+
+##### `package_manager`
+The package manger to be used within mock`s chroot.  This can be either `dnf` (default) or `yum`.
+
+##### `release`
+The build target's distribution release.  E.g., `27`.
+
+##### `repos`
+A hash whose keys are package repository names and whose values are hashes comprising the same parameters you would otherwise pass to `mock::target::repo`.  When declaring repos this way, it is unnecessary to pass the `base_arch`, `family` and `release` parameters within the hash if those passed to `mock::target` match (as they usually should).
+
+##### `target_arch`
+The machine hardware architecture that mock is to target when building rpms.  This mostly affects code compilation.
 
 
 ## Limitations

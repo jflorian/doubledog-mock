@@ -4,51 +4,6 @@
 #
 # Manages a build-target configuration file for mock.
 #
-# === Parameters
-#
-# ==== Required
-#
-# [*namevar*]
-#   An arbitrary identifier for the target instance.
-#
-# [*base_arch*]
-#   The base architecture for the build target.  This affects mock's
-#   configuration for yum repositories so that it can populate the build root
-#   with the minimum package set plus all BuildRequires.
-#
-# [*family*]
-#   The build target's distribution family.  E.g., 'fedora' or 'epel'.
-#
-# [*legal_host_arches*]
-#   To legally use this build target, the build host must be of a platform
-#   architecture contained in this list.
-#
-# [*release*]
-#   The build target's distribution release.  E.g., '20'.
-#
-# [*repos*]
-#   A hash whose keys are package repository names and whose values are hashes
-#   comprising the same parameters you would otherwise pass to
-#   Define[mock::target::repo].  When declaring repos this way, you do not
-#   need to pass the "base_arch", "family" nor "release" parameters within the
-#   hash if those passed to Define[mock::target] match (as they usually
-#   should).
-#
-# [*target_arch*]
-#   The machine hardware architecture that mock is to target when building
-#   rpms.  This mostly affects code compilation.
-#
-# ==== Optional
-#
-# [*ensure*]
-#   Instance is to be 'present' (default) or 'absent'.  Alternatively,
-#   a Boolean value may also be used with true equivalent to 'present' and
-#   false equivalent to 'absent'.
-#
-# [*package_manager*]
-#   The package manger to be used within mock's chroot.  This can be either
-#   'dnf' (default) or 'yum'.
-#
 # === Authors
 #
 #   John Florian <jflorian@doubledog.org>
