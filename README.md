@@ -31,7 +31,7 @@ basic use of the module.
 
 ## Usage
 
-Typical use of this module involves including the `mock` class to install the package and set the global configuration defaults.  You can then declare zero or more `mock::target` instances to deploy configurations for specific build targets.  Each build-target configuration effectively inherits the global default values and can extend and override those settings.  Build targets can take zero or more package repositories that are declared via `mock::target::repo` but are most easily passed in via the `repos` parameter on the `mock::target` definition.
+Typical use of this module involves including the [mock](#mock-class) class to install the package and set the global configuration defaults.  You can then declare zero or more [mock::target](#mocktarget-defined-type) instances to deploy configurations for specific build targets.  Each build-target configuration effectively inherits the global default values and can extend and override those settings.  Build targets can take zero or more package repositories that are declared via [mock::target::repo](#mocktargetrepo-defined-type) but are most easily passed in via the `repos` parameter on the [mock::target](#mocktarget-defined-type) definition.
 
 ## Reference
 
@@ -49,7 +49,7 @@ Typical use of this module involves including the `mock` class to install the pa
 
 #### mock class
 
-This class manages the package installation and the global `sites-defaults.cfg` configuration file.  It will be included automatically by `mock::target` so if your site uses Hiera for class parameter values, it is unnecessary to explicitly include this class.
+This class manages the package installation and the global `sites-defaults.cfg` configuration file.  It will be included automatically by [mock::target](#mocktarget-defined-type) so if your site uses Hiera for class parameter values, it is unnecessary to explicitly include this class.
 
 ##### `config_opts`
 A hash-map of key/value pairs to go into the `site-defaults.cfg` file to override the package defaults.  To remain as flexible as possible, neither name nor value is validated in any way by this Puppet module.
@@ -93,7 +93,7 @@ The package manger to be used within mock`s chroot.  This can be either `dnf` (d
 The build target's distribution release.  E.g., `27`.
 
 ##### `repos`
-A hash whose keys are package repository names and whose values are hashes comprising the same parameters you would otherwise pass to `mock::target::repo`.  When declaring repos this way, it is unnecessary to pass the `base_arch`, `family` and `release` parameters within the hash if those passed to `mock::target` match (as they usually should).
+A hash whose keys are package repository names and whose values are hashes comprising the same parameters you would otherwise pass to [mock::target::repo](#mocktargetrepo-defined-type).  When declaring repos this way, it is unnecessary to pass the `base_arch`, `family` and `release` parameters within the hash if those passed to `mock::target` match (as they usually should).
 
 ##### `target_arch`
 The machine hardware architecture that mock is to target when building rpms.  This mostly affects code compilation.
