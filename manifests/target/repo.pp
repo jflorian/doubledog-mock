@@ -34,7 +34,7 @@ define mock::target::repo (
     }
 
     if $gpgcheck and $gpgkey == undef {
-        fail("'gpgkey' must be set when gpgcheck is true")
+        fail("'gpgkey' must be set when 'gpgcheck' is true")
     }
 
     ::concat::fragment { "mock-${family}-${release}-${base_arch} ${title}":
