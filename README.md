@@ -83,10 +83,10 @@ This configuration file instance is to be `present` (default) or `absent`.  Alte
 ##### `family`
 The build target`s distribution family.  E.g., `fedora` or `epel`.
 
-##### `legal_host_arches`
+##### `legal\_host\_arches`
 To legally use this build target, the build host must be of a platform architecture contained in this array.
 
-##### `package_manager`
+##### `package\_manager`
 The package manger to be used within mock`s chroot.  This can be either `dnf` (default) or `yum`.
 
 ##### `release`
