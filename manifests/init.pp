@@ -10,7 +10,7 @@
 #
 # === Copyright
 #
-# Copyright 2014-2017 John Florian
+# Copyright 2014-2018 John Florian
 
 class mock (
         Variant[Boolean, String[1]] $ensure,
@@ -24,6 +24,7 @@ class mock (
     }
 
     file { '/etc/mock/site-defaults.cfg':
+        force     => true,
         owner     => 'root',
         group     => 'mock',
         mode      => '0644',
