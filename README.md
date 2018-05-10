@@ -1,3 +1,9 @@
+<!--
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2017-2018 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # mock
 
 #### Table of Contents
@@ -81,13 +87,13 @@ for the package repositories so that mock can populate the build root.  One of t
 This configuration file instance is to be `present` (default) or `absent`.  Alternatively, a Boolean value may also be used with `true` equivalent to `present` and `false` equivalent to `absent`.
 
 ##### `family`
-The build target`s distribution family.  E.g., `fedora` or `epel`.
+The build target's distribution family.  E.g., `fedora` or `epel`.
 
-##### `legal\_host\_arches`
+##### `legal_host_arches`
 To legally use this build target, the build host must be of a platform architecture contained in this array.
 
-##### `package\_manager`
-The package manger to be used within mock`s chroot.  This can be either `dnf` (default) or `yum`.
+##### `package_manager`
+The package manger to be used within mock's chroot.  This can be either `dnf` (default) or `yum`.
 
 ##### `release`
 The build target's distribution release.  E.g., `27`.
