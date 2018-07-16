@@ -25,6 +25,7 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 - switch from Hiera 4 to Hiera 5
 ### Deprecated
 ### Removed
+- `python3-pkgversion-macros` from chroot setup
 ### Fixed
 ### Security
 
