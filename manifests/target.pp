@@ -21,7 +21,7 @@ define mock::target (
         String[1] $release,
         String[1] $target_arch,
         Ddolib::File::Ensure::Limited $ensure='present',
-        Enum['dnf', 'yum'] $package_manager='dnf',
+        Mock::Pkg_mgr $package_manager='dnf',
         Hash[String[1], Hash] $repos={},
     ) {
 

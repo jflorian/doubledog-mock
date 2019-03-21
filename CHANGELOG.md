@@ -22,6 +22,7 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 ## [1.4.0] WIP
 ### Added
 - Fedora 29 support
+- `Mock::Pkg_mgr` data type
 ### Changed
 - switch from Hiera 4 to Hiera 5
 - dependency on `puppetlabs/concat` now allows version 5
