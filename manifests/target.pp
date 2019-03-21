@@ -1,4 +1,3 @@
-# modules/mock/manifests/target.pp
 #
 # == Define: mock::target
 #
@@ -10,7 +9,9 @@
 #
 # === Copyright
 #
-# Copyright 2014-2017 John Florian
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2014-2019 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 
 define mock::target (

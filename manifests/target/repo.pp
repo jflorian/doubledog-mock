@@ -1,4 +1,3 @@
-# modules/mock/manifests/target/repo.pp
 #
 # == Define: mock::target::repo
 #
@@ -10,7 +9,9 @@
 #
 # === Copyright
 #
-# Copyright 2016-2017 John Florian
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2016-2019 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 
 define mock::target::repo (

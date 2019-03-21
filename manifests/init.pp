@@ -1,4 +1,3 @@
-# modules/mock/manifests/init.pp
 #
 # == Class: mock
 #
@@ -10,7 +9,9 @@
 #
 # === Copyright
 #
-# Copyright 2014-2018 John Florian
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2014-2019 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 class mock (
         Variant[Boolean, String[1]] $ensure,
