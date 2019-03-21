@@ -19,7 +19,7 @@ Template
 
 All notable changes to this project (since v1.3.0) will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [1.4.0] WIP
+## [1.4.0] 2019-03-21
 ### Added
 - Fedora 29 support
 - `Mock::Pkg_mgr` data type
@@ -32,12 +32,9 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 - switch from Hiera 4 to Hiera 5
 - dependency on `puppetlabs/concat` now allows version 5
 - leverage `Ddolib::File::Ensure::Limited` type
-### Deprecated
 ### Removed
 - `python3-pkgversion-macros` from chroot setup
 - Fedora 26-27 support
-### Fixed
-### Security
 
 ## [1.3.0 and prior] 2018-12-15
 
