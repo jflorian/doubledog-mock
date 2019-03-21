@@ -1,4 +1,3 @@
-# modules/mock/manifests/init.pp
 #
 # == Class: mock
 #
@@ -10,13 +9,17 @@
 #
 # === Copyright
 #
-# Copyright 2014-2018 John Florian
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2014-2019 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 class mock (
         Variant[Boolean, String[1]] $ensure,
         Array[String[1], 1]         $packages,
         Hash[String[1], Data]       $config_opts,
-        Optional[String[1]]         $site_defaults=undef,
+        Optional[String[1]]         $site_defaults,
+        Hash[String[1], Any]        $target_defaults,
+        Hash[String[1], Hash]       $targets,
     ) {
 
     package { $packages:
@@ -34,5 +37,7 @@ class mock (
         content   => template('mock/site-defaults.cfg.erb'),
         subscribe => Package[$packages],
     }
+
+    create_resources(mock::target, $targets, $target_defaults)
 
 }

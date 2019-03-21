@@ -1,3 +1,8 @@
+<%#
+This file is part of the doubledog-mock Puppet module.
+Copyright 2015-2018 John Florian
+SPDX-License-Identifier: GPL-3.0-or-later
+-%>
 # WARNING:
 #   This file is managed by Puppet via the "<%= @module_name %>" module.
 # vim: filetype=configparser
@@ -5,7 +10,7 @@
 config_opts['root'] = 'epel-<%= @release %>-<%= @base_arch %>'
 config_opts['target_arch'] = '<%= @target_arch %>'
 config_opts['legal_host_arches'] = <%= @legal_host_arches %>
-config_opts['chroot_setup_cmd'] = 'install @buildsys-build python3-pkgversion-macros'
+config_opts['chroot_setup_cmd'] = 'install @buildsys-build'
 config_opts['dist'] = 'el<%= @release %>'  # only useful for --resultdir variable subst
 config_opts['releasever'] = '<%= @release %>'
 config_opts['package_manager'] = '<%= @package_manager %>'

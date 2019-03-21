@@ -1,4 +1,12 @@
+# This file is part of the doubledog-mock Puppet module.
+# Copyright 2017-2019 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 ---
+
 mock::ensure:                       installed
 mock::packages:
     - mock
+mock::site_defaults:                null
+mock::target_defaults:              {}
+mock::targets:                      {}
