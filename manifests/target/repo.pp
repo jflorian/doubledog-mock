@@ -22,7 +22,7 @@ define mock::target::repo (
         Optional[String[1]] $baseurl=undef,
         Integer[0] $cost=1000,
         Boolean $enabled=true,
-        Enum['priority', 'roundrobin'] $failovermethod='roundrobin',
+        Mock::Failovermethod $failovermethod='roundrobin',
         Boolean $gpgcheck=false,
         Optional[String[1]] $gpgkey=undef,
         Optional[String[1]] $metalink=undef,
