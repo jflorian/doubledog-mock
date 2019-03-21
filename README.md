@@ -1,6 +1,6 @@
 <!--
 # This file is part of the doubledog-mock Puppet module.
-# Copyright 2017-2018 John Florian
+# Copyright 2017-2019 John Florian
 # SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
@@ -27,6 +27,7 @@ Beyond the basic installation of the mock package, this Puppet module lets you e
 ### Setup Requirements
 
 The requirements for this module are modest:
+* the `doubledog-ddolib` module
 * the `puppetlabs-concat` module
 
 ### Beginning with mock
@@ -84,7 +85,7 @@ The base architecture for the build target.  This affects mock's configuration
 for the package repositories so that mock can populate the build root.  One of the following: `aarch64`, `armhfp`, `i386`, `ppc64`, `ppc64le`, `s390x`, `x86_64`
 
 ##### `ensure`
-This configuration file instance is to be `present` (default) or `absent`.  Alternatively, a Boolean value may also be used with `true` equivalent to `present` and `false` equivalent to `absent`.
+This configuration file instance is to be `present` (default) or `absent`.
 
 ##### `family`
 The build target's distribution family.  E.g., `fedora` or `epel`.

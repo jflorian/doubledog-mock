@@ -20,7 +20,7 @@ define mock::target (
         Array[String[1]] $legal_host_arches,
         String[1] $release,
         String[1] $target_arch,
-        Variant[Boolean, Enum['present', 'absent']] $ensure='present',
+        Ddolib::File::Ensure::Limited $ensure='present',
         Enum['dnf', 'yum'] $package_manager='dnf',
         Hash[String[1], Hash] $repos={},
     ) {
