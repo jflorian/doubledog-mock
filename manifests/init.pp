@@ -18,6 +18,7 @@ class mock (
         Array[String[1], 1]         $packages,
         Hash[String[1], Data]       $config_opts,
         Optional[String[1]]         $site_defaults,
+        Hash[String[1], Any]        $target_defaults,
         Hash[String[1], Hash]       $targets,
     ) {
 
@@ -37,6 +38,6 @@ class mock (
         subscribe => Package[$packages],
     }
 
-    create_resources(mock::target, $targets)
+    create_resources(mock::target, $targets, $target_defaults)
 
 }

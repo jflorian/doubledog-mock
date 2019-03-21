@@ -26,6 +26,7 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 - `Mock::Failovermethod` data type
 - `Mock::Base_arch` data type
 - `mock::targets` parameter
+- `mock::target_defaults` parameter
 ### Changed
 - switch from Hiera 4 to Hiera 5
 - dependency on `puppetlabs/concat` now allows version 5

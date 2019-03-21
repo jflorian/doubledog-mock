@@ -68,6 +68,9 @@ other value appropriate to the Package resource type.
 ##### `packages`
 An array of package names needed for the mock installation.  The default should be correct for supported platforms.
 
+##### `target_defaults`
+A hash of the same parameters you would pass to [mock::target](#mocktarget-defined-type).  Any parameters set here need not be set for each of the individual *targets* (unless you wish to override a value set here).
+
 ##### `targets`
 A hash whose keys are build-target names and whose values are hashes comprising the same parameters you would otherwise pass to [mock::target](#mocktarget-defined-type).
 
