@@ -38,7 +38,7 @@ define mock::target::repo (
         fail("'gpgkey' must be set when 'gpgcheck' is true")
     }
 
-    ::concat::fragment { "mock-${family}-${release}-${base_arch} ${title}":
+    concat::fragment { "mock-${family}-${release}-${base_arch} ${title}":
         target  => "/etc/mock/${family}-${release}-${base_arch}.cfg",
         order   => '200',
         content => template('mock/repo.erb'),
