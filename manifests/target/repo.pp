@@ -15,18 +15,18 @@
 
 
 define mock::target::repo (
-        Mock::Base_arch $base_arch,
-        String[1] $family,
-        String[1] $release,
-        Optional[String[1]] $baseurl=undef,
-        Integer[0] $cost=1000,
-        Boolean $enabled=true,
+        Mock::Base_arch      $base_arch,
+        String[1]            $family,
+        String[1]            $release,
+        Optional[String[1]]  $baseurl=undef,
+        Integer[0]           $cost=1000,
+        Boolean              $enabled=true,
         Mock::Failovermethod $failovermethod='roundrobin',
-        Boolean $gpgcheck=false,
-        Optional[String[1]] $gpgkey=undef,
-        Optional[String[1]] $metalink=undef,
-        Optional[String[1]] $mirrorlist=undef,
-        String[1] $reponame=$title,
+        Boolean              $gpgcheck=false,
+        Optional[String[1]]  $gpgkey=undef,
+        Optional[String[1]]  $metalink=undef,
+        Optional[String[1]]  $mirrorlist=undef,
+        String[1]            $reponame=$title,
     ) {
 
     if $baseurl == undef and $metalink == undef and $mirrorlist == undef {

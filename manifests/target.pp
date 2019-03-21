@@ -15,14 +15,14 @@
 
 
 define mock::target (
-        String[1] $base_arch,
-        String[1] $family,
-        Array[String[1]] $legal_host_arches,
-        String[1] $release,
-        String[1] $target_arch,
+        String[1]                     $base_arch,
+        String[1]                     $family,
+        Array[String[1]]              $legal_host_arches,
+        String[1]                     $release,
+        String[1]                     $target_arch,
         Ddolib::File::Ensure::Limited $ensure='present',
-        Mock::Pkg_mgr $package_manager='dnf',
-        Hash[String[1], Hash] $repos={},
+        Mock::Pkg_mgr                 $package_manager='dnf',
+        Hash[String[1], Hash]         $repos={},
     ) {
 
     include 'mock'
