@@ -1,6 +1,6 @@
 {
     "name": "doubledog-mock",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "author": "John Florian",
     "summary": "A module to manage the mock tool",
     "license": "GPL-3.0",
