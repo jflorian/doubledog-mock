@@ -38,7 +38,7 @@ basic use of the module.
 
 ## Usage
 
-Typical use of this module involves including the [mock](#mock-class) class to install the package and set the global configuration defaults.  You can then declare zero or more [mock::target](#mocktarget-defined-type) instances to deploy configurations for specific build targets.  Each build-target configuration effectively inherits the global default values and can extend and override those settings.  Build targets can take zero or more package repositories that are declared via [mock::target::repo](#mocktargetrepo-defined-type) but are most easily passed in via the `repos` parameter on the [mock::target](#mocktarget-defined-type) definition.
+Typical use of this module involves including the [mock](#mock-class) class to install the package and set the global configuration defaults.  You can then declare zero or more [mock::target](#mocktarget-defined-type) instances to deploy configurations for specific build targets.  Each build-target configuration effectively inherits the global default values and can extend and override those settings.  Build targets can take zero or more package repositories that are declared via [mock::target::repo](#mocktargetrepo-defined-type) but are most easily passed in via the `repos` parameter on the [mock::target](#mocktarget-defined-type) definition.  Likewise, all targets may be passed into the [mock](#mock-class) class via the *targets* parameter.  This means that you entire mock setup may be defined in Hiera and you then need only `include mock`.
 
 ## Reference
 
@@ -61,14 +61,15 @@ This class manages the package installation and the global `sites-defaults.cfg` 
 ##### `config_opts`
 A hash-map of key/value pairs to go into the `site-defaults.cfg` file to override the package defaults.  To remain as flexible as possible, neither name nor value is validated in any way by this Puppet module.
 
-
 ##### `ensure`
 The desired package state.  This can be `installed` (default), `absent`, or any
 other value appropriate to the Package resource type.
 
-
 ##### `packages`
 An array of package names needed for the mock installation.  The default should be correct for supported platforms.
+
+##### `targets`
+A hash whose keys are build-target names and whose values are hashes comprising the same parameters you would otherwise pass to [mock::target](#mocktarget-defined-type).
 
 
 ### Defined types

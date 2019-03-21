@@ -18,6 +18,7 @@ class mock (
         Array[String[1], 1]         $packages,
         Hash[String[1], Data]       $config_opts,
         Optional[String[1]]         $site_defaults,
+        Hash[String[1], Hash]       $targets,
     ) {
 
     package { $packages:
@@ -35,5 +36,7 @@ class mock (
         content   => template('mock/site-defaults.cfg.erb'),
         subscribe => Package[$packages],
     }
+
+    create_resources(mock::target, $targets)
 
 }

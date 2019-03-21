@@ -8,3 +8,4 @@ mock::ensure:                       installed
 mock::packages:
     - mock
 mock::site_defaults:                null
+mock::targets:                      {}
