@@ -22,6 +22,7 @@ define mock::target (
         String[1]                     $target_arch,
         Ddolib::File::Ensure::Limited $ensure='present',
         Mock::Pkg_mgr                 $package_manager='dnf',
+        Hash[String[1], Any]          $repo_defaults={},
         Hash[String[1], Hash]         $repos={},
     ) {
 
@@ -60,7 +61,7 @@ define mock::target (
             base_arch => $base_arch,
             family    => $family,
             release   => $release,
-        }
+        } + $repo_defaults
     )
 
 }

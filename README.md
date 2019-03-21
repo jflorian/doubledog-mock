@@ -103,6 +103,9 @@ The package manger to be used within mock's chroot.  This can be either `dnf` (d
 ##### `release`
 The build target's distribution release.  E.g., `27`.
 
+##### `repo_defaults`
+A hash of the same parameters you would pass to [mock::target::repo](#mocktargetrepo-defined-type).  Any parameters set here need not be set for each of the individual *repos* (unless you wish to override a value set here).
+
 ##### `repos`
 A hash whose keys are package repository names and whose values are hashes comprising the same parameters you would otherwise pass to [mock::target::repo](#mocktargetrepo-defined-type).  When declaring repos this way, it is unnecessary to pass the `base_arch`, `family` and `release` parameters within the hash if those passed to `mock::target` match (as they usually should).
 
