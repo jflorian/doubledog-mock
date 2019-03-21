@@ -26,6 +26,7 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 ### Deprecated
 ### Removed
 - `python3-pkgversion-macros` from chroot setup
+- Fedora 26-27 support
 ### Fixed
 ### Security
 
