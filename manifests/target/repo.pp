@@ -15,8 +15,7 @@
 
 
 define mock::target::repo (
-        Enum['aarch64', 'armhfp', 'i386', 'ppc64', 'ppc64le', 's390x',
-             'x86_64'] $base_arch,
+        Mock::Base_arch $base_arch,
         String[1] $family,
         String[1] $release,
         Optional[String[1]] $baseurl=undef,
