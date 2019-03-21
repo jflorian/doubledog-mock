@@ -17,7 +17,7 @@ class mock (
         Variant[Boolean, String[1]] $ensure,
         Array[String[1], 1]         $packages,
         Hash[String[1], Data]       $config_opts,
-        Optional[String[1]]         $site_defaults=undef,
+        Optional[String[1]]         $site_defaults,
     ) {
 
     package { $packages:
