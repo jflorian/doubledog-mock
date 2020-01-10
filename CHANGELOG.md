@@ -21,6 +21,7 @@ All notable changes to this project (since v1.3.0) will be documented in this fi
 
 ## [1.5.0] WIP
 ### Added
+- CentOS 8 support
 - Fedora 30, 31 support
 ### Changed
 ### Deprecated
